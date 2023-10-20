@@ -1,0 +1,17 @@
+name: Print Folder Structure
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  print-folder-structure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install tree command
+        run: sudo apt-get install tree
+      - name: Print folder structure
+        run: |
+          echo "Folder structure:"
+          tree
